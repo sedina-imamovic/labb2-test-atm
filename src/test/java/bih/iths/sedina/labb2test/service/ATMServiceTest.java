@@ -52,7 +52,7 @@ public class ATMServiceTest {
         atmService.deposit(100);
         verify(accountComponent).deposit(100);
     }
-    
+
     @Test
     public void withdrawWhenAmountIsValid() {
         when(accountComponent.getSaldo()).thenReturn(1000);

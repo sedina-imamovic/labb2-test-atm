@@ -33,7 +33,7 @@ public class ATMService {
         if (amount > maxWithdrawalAmount) {
             throw new MaxWithdrawalExceededException("Beloppet får inte överstiga maxbeloppet: " + maxWithdrawalAmount);
         }
-        
+
 
         if (amount > accountComponent.getSaldo()) {
             throw new InsufficientFundsException("Beloppet får inte överstiga aktuellt saldo!");
@@ -45,8 +45,8 @@ public class ATMService {
 
     public int getSaldo() {
 
-        //return accountComponent.getSaldo();
-        return 5000;
+        return accountComponent.getSaldo();
+        //return 5000;
     }
 
 }

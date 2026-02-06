@@ -8,7 +8,7 @@ test('Sidan går att nå', async ({page}) => {
 test('Sidan laddas korrekt och visar saldot', async ({page}) => {
     await page.goto('http://localhost:8080/saldo');
     const saldoText = await page.locator('h1 span').textContent();
-    expect(saldoText).toBe('5000');
+    expect(saldoText).toBe('0');
 });
 
 test('Saldot är synligt på sidan', async ({page}) => {
