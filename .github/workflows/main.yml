@@ -1,0 +1,32 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches:
+      - main  # Kör action vid push till main-grenen
+  pull_request:
+    branches:
+      - main  # Kör action vid pull request till main-grenen
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Anger vilket operativsystem GitHub Actions ska köras på
+
+    steps:
+      # Steg 1: Checka ut koden från GitHub
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Steg 2: Ställ in JDK 11 (eller den version av Java som ditt projekt använder)
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'  # Eller ändra till den version du använder
+
+      # Steg 3: Bygg och testa projektet med Maven
+      - name: Build with Maven
+        run: mvn clean install -DskipTests=false  # Bygg projektet och kör tester
+
+      # Steg 4: Kör tester
+      - name: Run tests
+        run: mvn test  # Kör alla enhetstester
