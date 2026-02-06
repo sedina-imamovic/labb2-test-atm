@@ -30,12 +30,6 @@ public class ATMServiceTest {
         assertThrows(InvalidAmountException.class, () -> atmService.deposit(-100));
     }
 
-    @Test
-    public void depositForValidAmount() {
-        atmService.deposit(100);
-        verify(accountComponent).deposit(100);
-    }
-
 
     @Test
     public void withdrawForInvalidAmount() {
@@ -53,6 +47,12 @@ public class ATMServiceTest {
         assertThrows(InsufficientFundsException.class, () -> atmService.withdraw(500));
     }
 
+    @Test
+    public void depositForValidAmount() {
+        atmService.deposit(100);
+        verify(accountComponent).deposit(100);
+    }
+    
     @Test
     public void withdrawWhenAmountIsValid() {
         when(accountComponent.getSaldo()).thenReturn(1000);
