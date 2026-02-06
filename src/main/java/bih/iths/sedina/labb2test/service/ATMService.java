@@ -46,7 +46,6 @@ public class ATMService {
     public int getSaldo() {
 
         return accountComponent.getSaldo();
-        //return 5000;
     }
 
 }
