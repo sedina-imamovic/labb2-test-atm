@@ -21,7 +21,7 @@ jobs:
         with:
           java-version: '11' 
           java-package: 'jdk' 
-          distribution: 'adoptopenjdk' 
+          distribution: 'temurin' 
 
       - name: Build with Maven
         run: mvn clean install -DskipTests=false  
